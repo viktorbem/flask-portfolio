@@ -1,0 +1,21 @@
+<section class="jumbo__container">
+
+    <div class="jumbo__content">
+        <h1 class="jumbo__title">Viktor Bem</h1>
+        <h2 class="jumbo__subtitle">Self-taught Developer</h2>
+
+        <p class="jumbo__text">Hi, my name is Viktor. Although I studied astrophysics, I decided to join my career with retail. But
+            the world is changing, so today I'm intensively studying programming and I hope for a future
+            application in this direction.</p>
+
+        <div class="button__row">
+            <a href="{{ url_for('pages.portfolio') }}" class="button button--primary">View Portfolio</a>
+            <a href="{{ url_for('pages.resume') }}" class="button button--secondary">View Resume</a>
+        </div>
+    </div>
+
+    <div>
+        <img class="jumbo__image" src="{{ url_for('static', filename='images/header.jpg') }}" alt="Me and my family.">
+    </div>
+
+</section>

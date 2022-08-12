@@ -1,0 +1,22 @@
+{% from "macros/project_card.jinja2" import project_card %} 
+
+<section>
+
+    <h1 class="main__title">My Projects</h1>
+    <p class="main__text">Although I am still learning and developing my skills every single day, there are some projects that I
+        consider (almost) finished and that I want to share with you. So here are some of them and you can find
+        more in my Portfolio section. Have fun!</p>
+
+    <div class="project__container">
+
+        {% for project in projects %}
+            {{ project_card(project) }}
+        {% endfor %}
+
+    </div>
+
+    <div class="button__row">
+        <a href="{{ url_for('pages.portfolio') }}" class="button button--primary">View Portfolio</a>
+    </div>
+
+</section>

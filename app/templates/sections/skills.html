@@ -1,0 +1,27 @@
+<section>
+
+    <h1 class="main__title">My Skills</h1>
+    <p class="main__text">Through my life I had learned many programming languages. I started with Basic on my first computer
+        Commodore C64, later I used Pascal on my PC and C through my studies on University. But there are some
+        tools I keep using over and over again, and that are HTML and CSS. Therefore I realized that web
+        development is my path of choice.</p>
+
+    <div class="skill__container">
+
+        {% for skill in skills %}
+            <div class="skill">
+                {% for icon in skill.icons %}
+                    <i class="{{ icon }}"></i>
+                {% endfor %}
+                <h2 class="skill__title">{{ skill.title }}</h2>
+                <p class="skill__text">{{ skill.description }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="button__row">
+        <a href="{{ url_for('pages.resume') }}" class="button button--primary">View Resume</a>
+    </div>
+
+</section>

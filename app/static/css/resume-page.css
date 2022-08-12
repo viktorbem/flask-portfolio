@@ -1,0 +1,153 @@
+:root {
+    --color-dark: #053742;
+    --color-light: #E8F0F2;
+    --color-link-main: #39A2DB;
+    --color-link-transparent: #39A2DB30;
+}
+
+
+body {
+    line-height: 1.5;
+}
+
+section, p {
+    text-align: left;
+}
+
+.link {
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.column--left {
+    grid-column: span 3;
+    padding-right: 20px;
+}
+
+.column--right {
+    border-left: 1px solid var(--color-link-main);
+    padding-left: 20px;
+}
+
+.resume__container {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.resume__page {
+    font-family: sans-serif;
+    width: 1000px;
+    padding: 100px;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.resume__title {
+    margin: 0;
+    font-size: 48px;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    padding: 0;
+    color:var(--color-link-main);
+}
+
+.resume__title--small {
+    color: var(--color-link-main);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    border-left: 10px solid var(--color-link-main);
+    padding-left: 30px;
+}
+
+.resume__subtitle {
+    margin: 0;
+    font-weight: normal;
+}
+
+.resume__abstract {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    font-size: 1rem;
+}
+
+.resume__image {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.resume__section {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    width: 100%;
+}
+
+.resume__line {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid var(--color-link-main);
+}
+
+.resume__list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.resume__link {
+    color: var(--color-dark);
+}
+
+.resume__link:hover {
+    color: var(--color-link-main);
+}
+
+
+/* Job experiences */
+
+.experience {
+    margin-bottom: 60px;
+}
+
+.experience__title {
+    display: inline-block;
+    font-weight: normal;
+    font-size: 1.1rem;
+    width: 60%;
+    margin: 0;
+}
+
+.experience__subtitle {
+    display: inline-block;
+    font-weight: normal;
+    color:var(--color-link-main);
+    width: 35%;
+    margin: 0;
+}
+
+
+/* Footer */
+
+.resume__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.resume__footer i {
+    font-size: 36px;
+    color: var(--color-dark);
+}
+
+.resume__footer-link {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    color: var(--color-link-main);
+}

@@ -1,0 +1,44 @@
+.contact__social {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: flex-start;
+}
+
+@media (max-width: 1024px) {
+
+    .contact__social {
+        justify-content: center;
+    }
+}
+
+.contact__social i {
+    font-size: 36px;
+    color: var(--color-dark);
+}
+
+.contact__social i:hover {
+    color: var(--color-link-main);
+}
+
+.contact__textarea {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: var(--color-dark);
+    resize: vertical;
+    padding: 10px;
+    width: 100%;
+}
+
+.contact__textarea:focus {
+    outline: none;
+    border-color: var(--color-dark);
+    box-shadow: 0 0 10px var(--color-dark);
+}
+
+@media (max-width: 1024px) {
+
+    .contact__textarea {
+        width: 90%;
+    }
+}
