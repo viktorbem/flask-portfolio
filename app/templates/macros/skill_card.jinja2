@@ -1,0 +1,11 @@
+{% macro skill_card(skill) %}
+
+    <div class="skill">
+        {% for icon in skill.icons %}
+            <i class="{{ icon }}"></i>
+        {% endfor %}
+        <h2 class="skill__title">{{ skill.title }}</h2>
+        <p class="skill__text">{{ skill.description }}</p>
+    </div>
+
+{% endmacro %}

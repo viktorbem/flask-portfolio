@@ -11,7 +11,7 @@ pages = Blueprint(
 
 @pages.route('/')
 def index():
-    skill_data = current_app.db.skill.find({})
+    skill_data = current_app.db.skill.find({'visible': {'$eq': True}})
     skills = [Skill(**skill) for skill in skill_data]
 
     project_data = current_app.db.project.find({'visible_index': {'$eq': True}}).sort('added', pymongo.DESCENDING)

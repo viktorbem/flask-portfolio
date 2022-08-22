@@ -1,8 +1,13 @@
 {% macro project_card(project) %}
 
+    {% set project_link = project.github_link %}
+    {% if project.project_link != '' %}
+        {% set project_link = project.project_link %}
+    {% endif %}
+
     <div class="project__card">
         <div class="project">
-            <a class="project__link" href="{{ project.github_link }}" target="_blank">
+            <a class="project__link" href="{{ project_link }}" target="_blank">
                 <img class="project__image" src="{{ url_for('pages.get_image', image_id=project.image_id) }}" alt="">
             </a>
             <div>

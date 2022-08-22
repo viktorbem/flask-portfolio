@@ -1,3 +1,5 @@
+{% from "macros/skill_card.jinja2" import skill_card %}
+
 <section>
 
     <h1 class="main__title">My Skills</h1>
@@ -9,13 +11,7 @@
     <div class="skill__container">
 
         {% for skill in skills %}
-            <div class="skill">
-                {% for icon in skill.icons %}
-                    <i class="{{ icon }}"></i>
-                {% endfor %}
-                <h2 class="skill__title">{{ skill.title }}</h2>
-                <p class="skill__text">{{ skill.description }}</p>
-            </div>
+            {{ skill_card(skill) }}
         {% endfor %}
 
     </div>
