@@ -30,7 +30,9 @@
                         <ul class="resume__list">
                             <li>
                                 <i class="fa fa-envelope"> </i>
-                                <a class="link resume__link" href="mailto:bem.viktor@hotmail.com">bem.viktor@hotmail.com</a>
+                                <a class="link resume__link" href="mailto:bem.viktor@hotmail.com">
+                                    bem.viktor@hotmail.com
+                                </a>
                             </li>
                             <li>
                                 <i class="fa fa-globe"> </i>
@@ -61,15 +63,19 @@
                         <h1 class="resume__title--small">Work Experiences</h1>
 
                         {% for experience in experiences %}
-                            {% set experience_date_to = "today" %}
-                            {% if experience.date_to %}
-                                {% set experience_date_to = experience.date_to.strftime("%B %Y") %}
-                            {% endif %}
-                            <div class="experience">
-                                <h3 class="experience__title"><strong>{{ experience.title_en }}</strong> in {{ experience.company }}</h3>
-                                <h5 class="experience__subtitle">{{ experience.date_from.strftime("%B %Y")}} – {{ experience_date_to }}</h5>
-                                <p>{{ experience.description_en }}</p>
-                            </div>
+                        {% set experience_date_to = "today" %}
+                        {% if experience.date_to %}
+                        {% set experience_date_to = experience.date_to.strftime("%B %Y") %}
+                        {% endif %}
+                        <div class="experience">
+                            <h3 class="experience__title">
+                                <strong>{{ experience.title_en }}</strong> in {{ experience.company }}
+                            </h3>
+                            <h5 class="experience__subtitle">
+                                {{ experience.date_from.strftime("%B %Y")}} – {{ experience_date_to }}
+                            </h5>
+                            <p>{{ experience.description_en }}</p>
+                        </div>
                         {% endfor %}
 
                     </div>
@@ -79,7 +85,7 @@
                         <h3><strong>Technical</strong></h3>
                         <ul class="resume__list">
                             {% for skill in skills %}
-                                <li>{{ skill.title }}</li>
+                            <li>{{ skill.title }}</li>
                             {% endfor %}
                             <li>Video & Image Editing</li>
                         </ul>
@@ -138,9 +144,9 @@
 
                     </div>
                     <div>
-                        <a class="link resume__footer-link" href="https://github.com/malchikkCZ">
+                        <a class="link resume__footer-link" href="https://github.com/viktorbem">
                             <i class="fa fa-github-square"></i>
-                            <span>/malchikkCZ</span>
+                            <span>/viktorbem</span>
                         </a>
                     </div>
                 </section>

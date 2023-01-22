@@ -6,8 +6,8 @@
 <section>
 
     <h1 class="main__title">My Portfolio</h1>
-    <p class="main__text">Welcome to my online portfolio. Here you can find some of my projects I've been working on, with some
-        description and link to its GitHub page. If you want to learn more or if you want me to help you with
+    <p class="main__text">Welcome to my online portfolio. Here you can find some of my projects I've been working on,
+        with some description and link to its GitHub page. If you want to learn more or if you want me to help you with
         your project, feel free to contact me.</p>
 
     <div class="button__row">
@@ -23,13 +23,13 @@
     <div class="project__container">
 
         {% for project in projects %}
-            {{ project_card(project) }}
+        {{ project_card(project) }}
         {% endfor %}
 
     </div>
 
     <div class="button__row">
-        <a href="https://github.com/malchikkCZ" class="button button--primary" target="_blank">Visit my GitHub</a>
+        <a href="https://github.com/viktorbem" class="button button--primary" target="_blank">Visit my GitHub</a>
     </div>
 
 </section>
