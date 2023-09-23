@@ -1,11 +1,9 @@
 import pymongo
 from flask import Blueprint, current_app, render_template
-
-from app.models import Experience, Project, Skill
-
+from app.pages.models import Experience, Project, Skill
 
 pages = Blueprint(
-    'pages', __name__, template_folder='templates', static_folder='static'
+    'pages', __name__, template_folder='templates', static_folder='static', static_url_path='/pages/static'
 )
 
 
@@ -16,8 +14,8 @@ def index():
 
     project_data = current_app.db.project.find({'visible_index': {'$eq': True}}).sort('added', pymongo.DESCENDING)
     projects = [Project(**project) for project in project_data]
-    
-    return render_template('index.html', skills=skills, projects=projects)
+
+    return render_template('index.j2', skills=skills, projects=projects)
 
 
 @pages.route('/portfolio')
@@ -25,12 +23,12 @@ def portfolio():
     project_data = current_app.db.project.find({'visible': {'$eq': True}}).sort('added', pymongo.DESCENDING)
     projects = [Project(**project) for project in project_data]
 
-    return render_template('portfolio.html', projects=projects)
+    return render_template('portfolio.j2', projects=projects)
 
 
 @pages.route('/resume')
 def resume():
-    return render_template('resume.html')
+    return render_template('resume.j2')
 
 
 @pages.route('/resume/<string:lang>')
@@ -42,7 +40,7 @@ def resume_sheet(lang):
     skills = [Skill(**data) for data in skill_data]
 
     return render_template(
-        f'resume/resume-{lang}.html',
+        f'resume/resume-{lang}.j2',
         experiences=experiences,
         skills=skills
     )
@@ -50,7 +48,7 @@ def resume_sheet(lang):
 
 @pages.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('contact.j2')
 
 
 @pages.route('/img/<string:image_id>')

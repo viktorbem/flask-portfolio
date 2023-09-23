@@ -1,0 +1,29 @@
+{% extends 'base.j2' %}
+
+{% block main_content %}
+
+    <section>
+
+        <h1 class="main__title">Online Resume</h1>
+        <p class="main__text">Do you want to learn more about my experiences, education or interests? You'll find
+            everything in my resume. If you click on the button below, you may download it as PDF.</p>
+
+        <div class="button__row">
+            <a href="{{ url_for('pages.static', filename='files/resume-en.pdf') }}" class="button button--primary"
+               target="_blank">Download EN</a>
+            <a href="{{ url_for('pages.static', filename='files/resume-cs.pdf') }}" class="button button--secondary"
+               target="_blank">Download CS</a>
+        </div>
+
+    </section>
+
+    <hr class="main__line resp--hidden">
+
+    <section class="resume__container">
+
+        <iframe src="{{ url_for('pages.resume_sheet', lang='en') }}" id="resume" class="resume__frame"
+                scrolling="no"></iframe>
+
+    </section>
+
+{% endblock %}
