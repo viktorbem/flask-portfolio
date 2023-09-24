@@ -1,0 +1,32 @@
+{% extends 'base-admin.j2' %}
+{% from 'macros/admin-control.j2' import admin_control %}
+
+{% block main_content %}
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Skills</h1>
+        <a href="{{ url_for('admin.add_skill') }}" class="btn btn-lg btn-primary">Add new skill</a>
+    </div>
+
+    <div class="skill__container">
+        {% for skill in skills %}
+            <div class="card mt-5">
+                <div class="card-header {% if not skill.visible %}opacity-50{% endif %}">
+                    <h3>{{ skill.title }}</h3>
+                </div>
+                <div class="card-body {% if not skill.visible %}opacity-50{% endif %}">
+                    <p class="fs-2">
+                        {% for icon in skill.icons %}
+                            <i class="{{ icon }}"></i>
+                        {% endfor %}
+                    </p>
+                    <p class="skill__text">{{ skill.description }}</p>
+                </div>
+                <div class="card-footer text-end">
+                    {{ admin_control('skill', skill) }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

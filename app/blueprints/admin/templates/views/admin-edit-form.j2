@@ -1,0 +1,14 @@
+{% extends 'base-admin.j2' %}
+{% from 'macros/admin-form-field.j2' import admin_form_field %}
+
+{% block main_content %}
+
+    <h1>{{ title }}</h1>
+
+    <form action="{{ request.path }}" class="mt-5" method="post" novalidate>
+        {% for field in form %}
+            {{ admin_form_field(field) }}
+        {% endfor %}
+    </form>
+
+{% endblock %}

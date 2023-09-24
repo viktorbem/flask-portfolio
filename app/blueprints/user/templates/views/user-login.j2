@@ -1,0 +1,18 @@
+{% extends 'base-user.j2' %}
+{% from 'macros/user-form-field.j2' import user_form_field %}
+
+{% block main_content %}
+
+    <form action="{{ url_for('user.login') }}" class="p-4 p-md-5 border rounded-3 bg-body-tertiary"
+          method="post" novalidate>
+        {{ form.csrf_token }}
+
+        {{ user_form_field(form.email) }}
+        {{ user_form_field(form.password) }}
+
+        <div class="d-flex justify-content-end">
+            {{ form.submit(class='w-100 btn btn-lg btn-primary') }}
+        </div>
+    </form>
+
+{% endblock %}

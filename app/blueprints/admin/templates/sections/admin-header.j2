@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('admin.home') }}">Home</a>
+                <a class="nav-link" href="{{ url_for('admin.skills') }}">Skills</a>
+                <a class="nav-link" href="{{ url_for('admin.projects') }}">Projects</a>
+                <a class="nav-link" href="{{ url_for('admin.experiences') }}">Experiences</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('user.logout') }}">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
