@@ -1,0 +1,59 @@
+{% from 'macros/social.j2' import social %}
+
+<header class="header">
+
+    <section class="header__profile">
+        <div class="header__menu-icon">
+            <img class="icon" src="{{ url_for('static', filename='images/menu-icon.svg') }}" alt="">
+        </div>
+        <a class="header__link" href="{{ url_for('pages.index') }}">
+            <h1 class="header__title">Viktor Bem</h1>
+            <img class="header__image" src="{{ url_for('static', filename='images/viktor.jpg') }}" alt="">
+        </a>
+        <p class="header__text resp--hidden">Hi, my name is Viktor, but people often call me David. Welcome to my website!</p>
+    </section>
+
+    <nav class="menu">
+        <hr class="menu__line resp--hidden">
+        <ul class="menu__list">
+            <li class="menu__item">
+                <a class="menu__link" href="{{ url_for('pages.index') }}">About Me</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="{{ url_for('pages.portfolio') }}">Portfolio</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="{{ url_for('pages.resume') }}">Resume</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="{{ url_for('pages.contact') }}">Contact Me</a>
+            </li>
+        </ul>
+        <hr class="menu__line">
+    </nav>
+
+    <section class="header__bottom">
+        {{ social("header__social") }}
+        <p class="resp--hidden">Copyright &copy; 2021 Viktor Bem</p>
+    </section>
+
+</header>
+
+
+<script>
+
+    // toggle mobile menu on button click
+    $('.header__menu-icon').on('click', () => {
+        $('.menu').slideToggle();
+        $('.header__bottom').slideToggle();
+    });
+
+    // hide mobile menu if click outside of header
+    $(document).on('click', (e) => {
+        if ($(e.target).closest('header').length === 0 && $(window).width() < 1024 ) {
+            $('.menu').slideUp();
+            $('.header__bottom').slideUp();
+        }
+    });
+
+</script>

@@ -1,0 +1,19 @@
+{% extends 'base-admin.j2' %}
+{% from 'macros/admin-form-field.j2' import admin_form_field %}
+
+{% block main_content %}
+
+    <h1>{{ project.title }} - upload image</h1>
+
+    {% if project.image_id %}
+        <h4 class="mt-5 mb-2 fs-6">Current image:</h4>
+        <img class="w-25" src="{{ url_for('pages.get_image', image_id=project.image_id) }}" alt="">
+    {% endif %}
+
+    <form action="{{ request.path }}" class="mt-5" method="post" enctype="multipart/form-data" novalidate>
+        {% for field in form %}
+            {{ admin_form_field(field) }}
+        {% endfor %}
+    </form>
+
+{% endblock %}

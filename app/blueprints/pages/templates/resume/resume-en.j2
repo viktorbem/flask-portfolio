@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Viktor Bem - Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resume-page.css') }}">
+
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/ce3dcaa409.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: white;">
+
+    <div>
+        <section class="resume__container">
+
+            <article class="resume__page">
+
+                <section class="resume__section">
+
+                    <div class="column--left">
+                        <h1 class="resume__title">Viktor Bem</h1>
+                        <h2 class="resume__subtitle">Self-taught Developer.</h2>
+                    </div>
+                    <div class="column--right">
+                        <ul class="resume__list">
+                            <li>
+                                <i class="fa fa-envelope"> </i>
+                                <a class="link resume__link" href="mailto:bem.viktor@hotmail.com">
+                                    bem.viktor@hotmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <i class="fa fa-globe"> </i>
+                                <a class="link resume__link" href="https://www.viktorbem.cz/">www.viktorbem.cz</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker-alt"> </i>
+                                Brno, CZE
+                            </li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <hr class="resume__line">
+
+                <section class="resume__abstract">
+                    <img class="resume__image" src="{{ url_for('static', filename='images/viktor.jpg') }}" alt="">
+                    <p>Hi, my name is Viktor. Although I studied astrophysics, I decided to join my career with retail.
+                        But the world is changing, so today I'm intensively studying programming and I hope for a future
+                        application in this direction.</p>
+                </section>
+
+                <hr class="resume__line">
+
+                <section class="resume__section">
+                    <div class="column--left">
+                        <h1 class="resume__title--small">Work Experiences</h1>
+
+                        {% for experience in experiences %}
+                            {% set experience_date_to = "today" %}
+                            {% if experience.date_to %}
+                                {% set experience_date_to = experience.date_to.strftime("%B %Y") %}
+                            {% endif %}
+                            <div class="experience">
+                                <h3 class="experience__title">
+                                    <strong>{{ experience.title_en }}</strong> in {{ experience.company }}
+                                </h3>
+                                <h5 class="experience__subtitle">
+                                    {{ experience.date_from.strftime("%B %Y") }} – {{ experience_date_to }}
+                                </h5>
+                                <p>{{ experience.description_en }}</p>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="column--right">
+                        <h1 class="resume__title--small">Skills</h1>
+                        <h3><strong>Technical</strong></h3>
+                        <ul class="resume__list">
+                            {% for skill in skills %}
+                                <li>{{ skill.title }}</li>
+                            {% endfor %}
+                            <li>Video & Image Editing</li>
+                        </ul>
+                        <br>
+                        <h3><strong>Professional</strong></h3>
+                        <ul class="resume__list">
+                            <li>Effective communication</li>
+                            <li>Presentation Skills</li>
+                            <li>Team Leading</li>
+                            <li>Selling Skills</li>
+                        </ul>
+                        <br>
+                        <h1 class="resume__title--small">Education</h1>
+                        <ul class="resume__list">
+                            <li>
+                                <ul class="resume__list">
+                                    <li><strong>Bc in Astrophysics</strong></li>
+                                    <li>Silesian University in Opava</li>
+                                    <li>2003 - 2008</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                        <h1 class="resume__title--small">Languages</h1>
+                        <ul class="resume__list">
+                            <li>Czech (Native)</li>
+                            <li>English (Advanced)</li>
+                        </ul>
+
+                        <br>
+                        <h1 class="resume__title--small">Interests</h1>
+                        <ul class="resume__list">
+                            <li>Programming</li>
+                            <li>Geocaching</li>
+                            <li>Board Games</li>
+                            <li>Literature</li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <hr class="resume__line">
+
+                <section class="resume__footer">
+                    <div>
+                        <a class="link resume__footer-link" href="https://www.linkedin.com/in/bemviktor">
+                            <i class="fa fa-linkedin-square"></i>
+                            <span>/in/bemviktor</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="link resume__footer-link" href="https://twitter.com/malchikkcz">
+                            <i class="fa fa-twitter-square"></i>
+                            <span>/malchikkcz</span>
+                        </a>
+
+                    </div>
+                    <div>
+                        <a class="link resume__footer-link" href="https://github.com/viktorbem">
+                            <i class="fa fa-github-square"></i>
+                            <span>/viktorbem</span>
+                        </a>
+                    </div>
+                </section>
+
+            </article>
+
+        </section>
+    </div>
+
+</body>
+
+</html>

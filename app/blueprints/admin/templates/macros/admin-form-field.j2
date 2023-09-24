@@ -1,0 +1,59 @@
+{% macro admin_form_field(field) %}
+
+    {% if field.type == 'StringField' or field.type == 'TextAreaField' %}
+
+        <div class="form-floating mb-3">
+            {{ field(class_='form-control', placeholder=field.label.text) }}
+            <label for="{{ field.id }}">{{ field.label.text }}</label>
+
+            {% for error in field.errors %}
+                <div class="text-danger mt-1">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+    {% elif field.type == 'DateField' or field.type == 'NullableDateField' %}
+
+        <div class="form-floating mb-3 col-3 d-inline-block me-3">
+            {{ field(class_='form-control', placeholder=field.label.text) }}
+            <label for="{{ field.id }}">{{ field.label.text }}</label>
+
+            {% for error in field.errors %}
+                <div class="text-danger mt-1">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+    {% elif field.type == 'FileField' %}
+
+        <div class="mb-3">
+            <label for="{{ field.id }}" class="form-label">{{ field.label.text }}</label>
+            {{ field(class_='form-control form-control-lg') }}
+
+            {% for error in field.errors %}
+                <div class="text-danger mt-1">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+    {% elif field.type == 'BooleanField' %}
+
+        <div class="form-check">
+            {{ field(class_='form-check-input') }}
+            <label class="form-check-label" for="{{ field.id }}">{{ field.label.text }}</label>
+
+            {% for error in field.errors %}
+                <div class="text-danger mt-1">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+    {% elif field.type == 'SubmitField' %}
+
+        <div class="d-flex justify-content-end">
+            {{ field(class='btn btn-lg btn-primary') }}
+        </div>
+
+    {% else %}
+
+        {{ field }}
+
+    {% endif %}
+
+{% endmacro %}

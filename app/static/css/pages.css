@@ -1,0 +1,29 @@
+@import url('shared/variables.css');
+@import url('shared/buttons.css');
+@import url('shared/header.css');
+@import url('shared/content.css');
+@import url('shared/skills.css');
+@import url('shared/portfolio.css');
+@import url('shared/resume.css');
+@import url('shared/contact.css');
+
+
+body {
+    font-family: var(--font-family-default);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.2s ease;
+    color: inherit;
+}
+
+@media (max-width: 1023px) {
+
+    .resp--hidden {
+        display: none;
+    }
+}
