@@ -5,13 +5,6 @@
     justify-content: flex-start;
 }
 
-@media (max-width: 1024px) {
-
-    .contact__social {
-        justify-content: center;
-    }
-}
-
 .contact__social i {
     font-size: 36px;
     color: var(--color-dark);
@@ -21,15 +14,50 @@
     color: var(--color-link-main);
 }
 
+.contact__alert {
+    padding: 1rem;
+    margin-top: 30px;
+    border-width: 1px;
+    border-style: solid;
+    width: calc(100% - 10px);
+    color: var(--alert-color);
+    background-color: var(--alert-bg);
+    border-color: var(--alert-border)
+}
+
+.contact__alert--success {
+    --alert-color: #0a3622;
+    --alert-bg: #d1e7dd;
+    --alert-border: #a3cfbb;
+}
+
+.contact__alert--danger {
+    --alert-color: #58151c;
+    --alert-bg: #f8d7da;
+    --alert-border: #f1aeb5;
+}
+
+.contact__alert--warning {
+    --alert-color: #664d03;
+    --alert-bg: #fff3cd;
+    --alert-border: #664d03;
+}
+
+.contact__field,
 .contact__textarea {
     margin-top: 30px;
+    font-family: monospace;
     font-size: 1rem;
     color: var(--color-dark);
-    resize: vertical;
     padding: 10px;
     width: 100%;
 }
 
+.contact__textarea {
+    resize: vertical;
+}
+
+.contact__field:focus,
 .contact__textarea:focus {
     outline: none;
     border-color: var(--color-dark);
@@ -38,6 +66,15 @@
 
 @media (max-width: 1024px) {
 
+    .contact__form {
+        text-align: center;
+    }
+
+    .contact__alert {
+        width: calc(90% - 5px);
+    }
+
+    .contact__field,
     .contact__textarea {
         width: 90%;
     }

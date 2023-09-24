@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, current_app, flash, redirect, render_template, url_for
+
+from app.blueprints.pages.forms import ContactForm
 
 from app.models.experience import Experience
 from app.models.image import Image
@@ -13,19 +15,19 @@ def index():
     skills = Skill.get_all()
     projects = [project for project in Project.get_all() if project.visible_index]
 
-    return render_template('index.j2', skills=skills, projects=projects)
+    return render_template('views/index.j2', skills=skills, projects=projects)
 
 
 @pages.route('/portfolio')
 def portfolio():
     projects = Project.get_all()
 
-    return render_template('portfolio.j2', projects=projects)
+    return render_template('views/portfolio.j2', projects=projects)
 
 
 @pages.route('/resume')
 def resume():
-    return render_template('resume.j2')
+    return render_template('views/resume.j2')
 
 
 @pages.route('/resume/<string:lang>')
@@ -40,9 +42,24 @@ def resume_sheet(lang):
     )
 
 
-@pages.route('/contact')
+@pages.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.j2')
+    form = ContactForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        message = form.message.data
+
+        response = current_app.webhook.send(text=f'*{email}*\n\n{message}')
+        if response.status_code == 200:
+            flash('Your message has been sent. I\'m going to reach you as soon as possible.', 'success')
+            return redirect(url_for('pages.contact'))
+
+        flash('Something went wrong. Please try again later.', 'danger')
+
+    if len(form.errors) > 0:
+        flash('Some form fields are not properly filled.', 'warning')
+
+    return render_template('views/contact.j2', form=form)
 
 
 @pages.route('/img/<string:image_id>')

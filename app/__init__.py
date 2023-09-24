@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from flask import Flask
 from flask_login import LoginManager
 from pymongo import MongoClient
+from slack_sdk.webhook import WebhookClient
 
 from app.blueprints.admin import admin
 from app.blueprints.pages import pages
@@ -23,6 +24,10 @@ def create_app():
     app.config['MONGODB_URI'] = os.environ.get('MONGODB_URI')
     app.db = MongoClient(app.config['MONGODB_URI']).get_default_database()
     app.fs = gridfs.GridFS(app.db)
+
+    # Slack initialization and configuration
+    app.config['SLACK_URL'] = os.environ.get('SLACK_URL')
+    app.webhook = WebhookClient(app.config['SLACK_URL'])
 
     # LoginManager initialization and configuration
     login_manager = LoginManager()

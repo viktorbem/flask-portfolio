@@ -1,0 +1,47 @@
+{% extends 'base.j2' %}
+{% from 'macros/social.j2' import social %}
+
+{% block main_content %}
+
+    <section>
+
+        <h1 class="main__title">Contact Me</h1>
+        <p class="main__text">
+            Interested in staying connected? You can follow me on the social media channels listed below.
+        </p>
+        {{ social("contact__social") }}<br>
+
+    </section>
+
+    <section>
+
+        <p class="main__text">
+            If you are interested in considering me for your project or simply wish to get in touch, please don't
+            hesitate to complete the form below.
+        </p>
+
+
+        <form action="{{ url_for('pages.contact') }}" class="contact__form" method="post" novalidate>
+            {{ form.csrf_token }}
+
+            {{ form.email(class_='contact__field', placeholder='Your email...') }}
+            {{ form.message(class_='contact__textarea', placeholder='Write your message here...') }}
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="contact__alert contact__alert--{{ category }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="button__row">
+                {{ form.submit(class_='button button--primary') }}
+            </div>
+        </form>
+
+    </section>
+
+{% endblock %}
