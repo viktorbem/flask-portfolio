@@ -9,6 +9,7 @@ from slack_sdk.webhook import WebhookClient
 
 from app.blueprints.admin import admin
 from app.blueprints.pages import pages
+from app.blueprints.resume import resume
 from app.blueprints.user import user
 
 from app.models.user import User
@@ -40,6 +41,7 @@ def create_app():
 
     # Blueprints
     app.register_blueprint(pages)
+    app.register_blueprint(resume, url_prefix='/resume')
     app.register_blueprint(admin, url_prefix='/admin')
     app.register_blueprint(user, url_prefix='/auth')
 

@@ -1,0 +1,33 @@
+{% if lang == 'cs' %}
+    {% set section_title = 'Pracovní zkušenosti' %}
+    {% set string_format = '%m / %Y' %}
+    {% set today_label = 'současnost' %}
+{% else %}
+    {% set lang = 'en' %}
+    {% set section_title = 'Work Experiences' %}
+    {% set string_format = '%B %Y' %}
+    {% set today_label = 'today' %}
+{% endif %}
+
+<td class="column--left">
+    <h1 class="resume__title--small">
+        {{ section_title }}
+    </h1>
+
+    {% for experience in experiences %}
+        {% set experience_date_to = today_label %}
+        {% if experience.date_to %}
+            {% set experience_date_to = experience.date_to.strftime(string_format) %}
+        {% endif %}
+        <div class="experience">
+            <h3 class="experience__title">
+                <strong>{{ experience['title_' + lang] }}</strong> - {{ experience.company }}
+            </h3>
+            <h5 class="experience__subtitle">
+                {{ experience.date_from.strftime(string_format) }} – {{ experience_date_to }}
+            </h5>
+            <p>{{ experience['description_' + lang] }}</p>
+        </div>
+    {% endfor %}
+
+</td>
