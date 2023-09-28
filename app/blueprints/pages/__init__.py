@@ -18,30 +18,6 @@ def index():
     return render_template('views/index.j2', skills=skills, projects=projects)
 
 
-@pages.route('/portfolio')
-def portfolio():
-    projects = Project.get_all()
-
-    return render_template('views/portfolio.j2', projects=projects)
-
-
-@pages.route('/resume')
-def resume():
-    return render_template('views/resume.j2')
-
-
-@pages.route('/resume/<string:lang>')
-def resume_sheet(lang):
-    experiences = Experience.get_all()
-    skills = Skill.get_all()
-
-    return render_template(
-        f'resume/resume-{lang}.j2',
-        experiences=experiences,
-        skills=skills
-    )
-
-
 @pages.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -66,3 +42,16 @@ def contact():
 def get_image(image_id):
     image = Image.get_image_by_id(image_id)
     return image
+
+
+@pages.route('/portfolio')
+def portfolio():
+    projects = Project.get_all()
+
+    return render_template('views/portfolio.j2', projects=projects)
+
+
+@pages.route('/resume')
+def resume():
+    return render_template('views/resume.j2')
+

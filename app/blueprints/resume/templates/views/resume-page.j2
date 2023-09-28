@@ -1,0 +1,30 @@
+{% extends 'base-resume.j2' %}
+
+{% block body_content %}
+
+    <div>
+        <section class="resume__container">
+
+            <article class="resume__page">
+
+                {% include 'sections/resume-header.j2' %}
+
+                <hr class="resume__line">
+
+                <section class="resume__section">
+
+                    {% include 'sections/resume-experiences.j2' %}
+                    {% include 'sections/resume-aside.j2' %}
+
+                </section>
+
+                <hr class="resume__line">
+
+                {% include 'sections/resume-footer.j2' %}
+
+            </article>
+
+        </section>
+    </div>
+
+{% endblock %}

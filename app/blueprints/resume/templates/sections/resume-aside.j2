@@ -1,0 +1,111 @@
+<div class="column--right">
+
+    {% if lang == 'cs' %}
+
+        <h1 class="resume__title--small">Dovednosti</h1>
+
+        <h3><strong>Technické</strong></h3>
+        <ul class="resume__list">
+            {% for skill in skills %}
+                <li>{{ skill.title }}</li>
+            {% endfor %}
+            <li>Úpravy videa a fotografií</li>
+        </ul>
+
+        <br>
+
+        <h3><strong>Profesní</strong></h3>
+        <ul class="resume__list">
+            <li>Efektivní komunikace</li>
+            <li>Prezentační dovednosti</li>
+            <li>Vedení týmu</li>
+            <li>Prodejní dovednosti</li>
+        </ul>
+
+        <br>
+
+        <h1 class="resume__title--small">Vzdělání</h1>
+        <ul class="resume__list">
+            <li>
+                <ul class="resume__list">
+                    <li><strong>Bc v astrofyzice</strong></li>
+                    <li>Slezská univerzita v Opavě</li>
+                    <li>2003 - 2008</li>
+                </ul>
+            </li>
+        </ul>
+
+        <br>
+
+        <h1 class="resume__title--small">Jazyky</h1>
+        <ul class="resume__list">
+            <li>Čeština (rodilý mluvčí)</li>
+            <li>Angličtina (pokročilý)</li>
+        </ul>
+
+        <br>
+
+        <h1 class="resume__title--small">Zájmy</h1>
+        <ul class="resume__list">
+            <li>Programování</li>
+            <li>Geocaching</li>
+            <li>Deskové hry</li>
+            <li>Literatura</li>
+        </ul>
+
+    {% else %}
+
+        <h1 class="resume__title--small">Skills</h1>
+
+        <h3><strong>Technical</strong></h3>
+        <ul class="resume__list">
+            {% for skill in skills %}
+                <li>{{ skill.title }}</li>
+            {% endfor %}
+            <li>Video & Image Editing</li>
+        </ul>
+
+        <br>
+
+        <h3><strong>Professional</strong></h3>
+        <ul class="resume__list">
+            <li>Effective communication</li>
+            <li>Presentation Skills</li>
+            <li>Team Leading</li>
+            <li>Selling Skills</li>
+        </ul>
+
+        <br>
+
+        <h1 class="resume__title--small">Education</h1>
+        <ul class="resume__list">
+            <li>
+                <ul class="resume__list">
+                    <li><strong>Bc in Astrophysics</strong></li>
+                    <li>Silesian University in Opava</li>
+                    <li>2003 - 2008</li>
+                </ul>
+            </li>
+        </ul>
+
+        <br>
+
+        <h1 class="resume__title--small">Languages</h1>
+        <ul class="resume__list">
+            <li>Czech (Native)</li>
+            <li>English (Advanced)</li>
+        </ul>
+
+        <br>
+
+        <h1 class="resume__title--small">Interests</h1>
+        <ul class="resume__list">
+            <li>Programming</li>
+            <li>Geocaching</li>
+            <li>Board Games</li>
+            <li>Literature</li>
+        </ul>
+
+    {% endif %}
+
+</div>
