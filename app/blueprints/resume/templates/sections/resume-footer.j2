@@ -1,23 +1,24 @@
 {% from 'macros/resume-icon.j2' import render_icon %}
 
-<section class="resume__footer">
-    <div>
-        <a class="link resume__footer-link" href="https://www.linkedin.com/in/bemviktor">
-            {{ render_icon('linkedin') }}
-            <span>/in/bemviktor</span>
-        </a>
-    </div>
-    <div>
-        <a class="link resume__footer-link" href="https://twitter.com/malchikkcz">
-            {{ render_icon('twitter') }}
-            <span>/malchikkcz</span>
-        </a>
-
-    </div>
-    <div>
-        <a class="link resume__footer-link" href="https://github.com/viktorbem">
-            {{ render_icon('github') }}
-            <span>/viktorbem</span>
-        </a>
-    </div>
-</section>
+<table class="resume__footer">
+    <tr>
+        <td>
+            <a class="link resume__footer-link" href="https://www.linkedin.com/in/bemviktor">
+                {{ render_icon('linkedin') }}
+                <span>/in/bemviktor</span>
+            </a>
+        </td>
+        <td>
+            <a class="link resume__footer-link" href="https://twitter.com/malchikkcz">
+                {{ render_icon('twitter') }}
+                <span>/malchikkcz</span>
+            </a>
+        </td>
+        <td>
+            <a class="link resume__footer-link" href="https://github.com/viktorbem">
+                {{ render_icon('github') }}
+                <span>/viktorbem</span>
+            </a>
+        </td>
+    </tr>
+</table>

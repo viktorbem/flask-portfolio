@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, Response, url_for
-import pdfkit
+from weasyprint import HTML, CSS
 
 from app.models.experience import Experience
 from app.models.skill import Skill
@@ -22,14 +22,13 @@ def get_html(lang):
 
 @resume.route('/pdf/<string:lang>')
 def get_pdf(lang):
-    pdf_data = pdfkit.from_url(
-        url_for('resume.get_html', lang=lang, _external=True),
-        output_path=False,
-        options={'page-size': 'A4'}
+    html_content = HTML(url_for('resume.get_html', lang=lang, _external=True))
+    pdf_data = html_content.write_pdf(
+        stylesheets=[CSS(string='@page { size: A3; margin: 0; }')]
     )
 
     response = Response(pdf_data)
     response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = f'attachment; filename=resume-{lang}.pdf'
+    response.headers['Content-Disposition'] = f'attachement; filename=viktorbem-{lang}-resume.pdf'
 
     return response

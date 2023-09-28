@@ -1,60 +1,67 @@
 {% from 'macros/resume-icon.j2' import render_icon %}
 
-<section class="resume__section">
+<table class="resume__table">
+    <tr>
+        <td class="column--left">
+            <h1 class="resume__title">Viktor Bem</h1>
+            <h2 class="resume__subtitle">
 
-    <div class="column--left">
-        <h1 class="resume__title">Viktor Bem</h1>
-        <h2 class="resume__subtitle">
+                {% if lang == 'cs' %}
+                    Programátor samouk.
+                {% else %}
+                    Self-taught Developer.
+                {% endif %}
 
-            {% if lang == 'cs' %}
-                Programátor samouk.
-            {% else %}
-                Self-taught Developer.
-            {% endif %}
+            </h2>
+        </td>
+        <td class="column--right">
+            <ul class="resume__list">
+                <li>
+                    {{ render_icon('envelope') }}
+                    <a class="link resume__link" href="mailto:bem.viktor@hotmail.com">
+                        bem.viktor@hotmail.com
+                    </a>
+                </li>
+                <li>
+                    {{ render_icon('globe') }}
+                    <a class="link resume__link" href="https://www.viktorbem.cz/">
+                        www.viktorbem.cz
+                    </a>
+                </li>
+                <li>
+                    {{ render_icon('location-dot') }}
+                    Brno, CZE
+                </li>
+            </ul>
+        </td>
+    </tr>
 
-        </h2>
-    </div>
-
-    <div class="column--right">
-        <ul class="resume__list">
-            <li>
-                {{ render_icon('envelope') }}
-                <a class="link resume__link" href="mailto:bem.viktor@hotmail.com">
-                    bem.viktor@hotmail.com
-                </a>
-            </li>
-            <li>
-                {{ render_icon('globe') }}
-                <a class="link resume__link" href="https://www.viktorbem.cz/">
-                    www.viktorbem.cz
-                </a>
-            </li>
-            <li>
-                {{ render_icon('location-dot') }}
-                Brno, CZE
-            </li>
-        </ul>
-    </div>
-
-</section>
+</table>
 
 <hr class="resume__line">
 
-<section class="resume__abstract">
+<table class="resume__abstract">
 
-    <img class="resume__image" src="{{ url_for('static', filename='images/viktor.jpg', _external=True) }}" alt="">
-    <p>
+    <tr>
+        <td>
+            <img class="resume__image" src="{{ url_for('static', filename='images/viktor.jpg', _external=True) }}"
+                 alt="">
+        </td>
+        <td>
+            <p>
 
-        {% if lang == 'cs' %}
-            Ahoj, mé jméno je Viktor. Přestože jsem na vysoké škole studoval astrofyziku, rozhodl jsem se
-            svou kariéru spojit s maloobchodem. Jenže svět se mění, proto se dnes intenzivně vzdělávám v
-            programování a doufám v budoucí uplatnění v tomto směru.
-        {% else %}
-            Hi, my name is Viktor. Although I studied astrophysics, I decided to join my career with retail.
-            But the world is changing, so today I'm intensively studying programming and I hope for a future
-            application in this direction.
-        {% endif %}
+                {% if lang == 'cs' %}
+                    Ahoj, mé jméno je Viktor. Přestože jsem na vysoké škole studoval astrofyziku, rozhodl jsem se
+                    svou kariéru spojit s maloobchodem. Jenže svět se mění, proto se dnes intenzivně vzdělávám v
+                    programování a doufám v budoucí uplatnění v tomto směru.
+                {% else %}
+                    Hi, my name is Viktor. Although I studied astrophysics, I decided to join my career with retail.
+                    But the world is changing, so today I'm intensively studying programming and I hope for a future
+                    application in this direction.
+                {% endif %}
 
-    </p>
+            </p>
+        </td>
+    </tr>
 
-</section>
+</table>
